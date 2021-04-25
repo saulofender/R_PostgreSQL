@@ -19,7 +19,7 @@ conn <- dbConnect(RPostgres::Postgres(),
                        host = "localhost",
                        user = "postgres",
                        dbname = "postgres",
-                       password = "joao2013?")
+                       password = "xxxxxxxxx")
 
 dbDisconnect(conn)
 
