@@ -1,0 +1,13 @@
+
+# Exemplo Group By: 10/04/21
+movimentacao %>% 
+  select(!starts_with("doc")) %>% 
+  mutate(ano = lubridate::year(data_andamento),
+         mes = lubridate::month(data_andamento, label = T)) %>% 
+  group_by(ano, mes) %>% 
+  summarise(qt.mes = n()) %>% 
+  ungroup() %>% 
+  group_by(ano) %>% 
+  mutate(media.ano = mean(qt)) %>% 
+  ungroup() %>% 
+  arrange(desc(media.ano))

@@ -1,0 +1,22 @@
+### TUTORIAIS
+
+https://direito.consudata.com.br/jurimetria/dplyr/
+
+https://direito.consudata.com.br/shiny/stringr/
+
+https://direito.consudata.com.br/rpsql/tb1/
+
+https://rsilveirafh.github.io/RPostgreSQL/aula03.html *(aluno criou anotacao)
+
+https://rpg.consudata.com.br/posts/2021-01-03-tidypg-cheatsheet-criando-tabelas-a-partir-de-outras-parte-1/
+
+https://rpg.consudata.com.br/posts/2021-01-03-joins-no-r-e-no-postgresql/
+
+https://pgexercises.com/
+
+https://direito.consudata.com.br/rpsql/restricoes/
+identificacao@dominio.com.br
+
+https://use-the-index-luke.com/
+
+https://rpg.consudata.com.br/posts/2021-01-04-como-subir-mltiplos-e-grandes-arquivos-para-o-postgresql-com-r/
