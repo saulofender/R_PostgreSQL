@@ -5,7 +5,7 @@ conn <- DBI::dbConnect(RPostgres::Postgres(),
                        host = "direito.consudata.com.br",
                        dbname = "stf_saulo",
                        user = "saulo",
-                       password = "rcdpost!gres")
+                       password = "xxxxxxxxx")
 
 # Modo_2: Conectando ao banco de dados
 # conn <- DBI::dbConnect(RPostgres::Postgres(),

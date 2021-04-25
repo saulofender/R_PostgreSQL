@@ -8,7 +8,7 @@ library(DBI)
 # link: https://rpg.consudata.com.br/posts/2021-01-03-joins-no-r-e-no-postgresql/
 
 # Conexao
-conn <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="rcdpost!gres")
+conn <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="xxxxxxxxx")
 
 
 tabelas <- c("df", "dd", "dk", "df1", "df2", "df3")

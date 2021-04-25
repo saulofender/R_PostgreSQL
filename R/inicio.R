@@ -41,6 +41,3 @@ sd(x)
 
 remotes::install_github("jjesusfilho/stf")
 remotes::install_github("jjesusfilho/tjsp")
-
-library(usethis)
-create_project("rpg3")

@@ -6,7 +6,7 @@ conn <- DBI::dbConnect(RPostgres::Postgres(),
                   host = "direito.consudata.com.br",
                   user = "saulo",
                   dbname = "edicao3",
-                  password = "rcdpost!gres")
+                  password = "xxxxxxxxx")
 
 # Disconectando do banco de dados
 DBI::dbDisconnect(conn)
@@ -31,7 +31,7 @@ conn <- connection_open(RPostgres::Postgres(),
                         host = "direito.consudata.com.br",
                         dbname = "stf_saulo",
                         user = "saulo",
-                        password = "rcdpost!gres"
+                        password = "xxxxxxxxx"
                         #password = Sys.getenv("DBPASSWORD") #não funcionou
                         )
 

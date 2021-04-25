@@ -6,7 +6,7 @@ conn <- connection_open(RPostgres::Postgres(),
                         dbname = "stf_saulo",
                         user="saulo",
                         #password=Sys.getenv("DBPASSWORD")
-                        password = "rcdpost!gres"
+                        password = "xxxxxxxxx"
                         )
 
 # Modo dplyr (não recomendado)

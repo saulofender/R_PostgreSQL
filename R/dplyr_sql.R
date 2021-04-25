@@ -1,12 +1,12 @@
 # CONECTA AO BANCO
-conn <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="rcdpost!gres")
+conn <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="xxxxxxxxx")
 
 # CONECTA AO BANCO E MOSTRA A CONEXAO COM AS TABELAS EM CONNECTIONS
 conn <- connections::connection_open(RPostgres::Postgres(),
                                      host = "direito.consudata.com.br",
                                      dbname = "stf_saulo",
                                      user = "saulo",
-                                     password = "rcdpost!gres")
+                                     password = "xxxxxxxxx")
 
 
 # PACOTES
