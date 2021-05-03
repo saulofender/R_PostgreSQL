@@ -8,7 +8,8 @@ library(DBI)
 # link: https://rpg.consudata.com.br/posts/2021-01-03-joins-no-r-e-no-postgresql/
 
 # Conexao
-conn <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="xxxxxxxxx")
+conn <- connections::connection_open(RPostgres::Postgres(),host="direito.consudata.com.br", dbname="stf_saulo",user="saulo",password="xxxxxxxxx")
+con <- DBI::dbConnect(RPostgres::Postgres(),host="direito.consudata.com.br",dbname="stf_saulo",user="saulo",password="xxxxxxxxx")
 
 
 tabelas <- c("df", "dd", "dk", "df1", "df2", "df3")
@@ -84,6 +85,18 @@ anti_join(d1,d2, by = "a")
 d1 %>%
   filter(!a %in% d2$a) #anti_join é equivalente a esta operacao "! %in%"
 
+
+# self_join (joins de uma tabela com ela mesma)
+func <- tibble::tibble(
+  
+  id_funcionario = c(1:8),
+  nome = c("Heloísa","Daniel","Thandara","Naiara","Patrick","Haydee","Julia","Fabio"),
+  id_supervisor = c(NA_real_,1,1,2,2,3,3,3)
+)
+
+dplyr::inner_join(func,func,by = c("id_supervisor"= "id_funcionario")) %>%
+  dplyr::select(funcionario = nome.x, supervisor = nome.y)
+
 #___________________________________________________________________________
 
 
@@ -97,5 +110,46 @@ iwalk(list(d1 = d1, d2 = d2), ~{
 })
 
 ##obs: ir para o arquivo "treino.sql"
-
 #remotes::install_github("jjesusfilho/rpsql")
+
+## AULA: 24/04/21 ___________
+# INNER JOIN
+j <- DBI::dbGetQuery(conn, "
+WITH cte1 AS (
+
+SELECT a, b AS b_y 
+FROM d2
+
+)
+
+SELECT a, b, c
+FROM d1
+INNER JOIN cte1 USING(a);")
+
+
+# LEFT JOIN 
+j <- dbGetQuery(conn, "
+SELECT d1.a, d2.b, c 
+FROM d1 
+LEFT OUTER JOIN d2 
+ON d1.a = d2.a;")
+
+
+# ANTI JOIN 
+j <- dbGetQuery(conn, "
+SELECT * FROM d1 
+WHERE NOT EXISTS(
+  SELECT  -- Não precisa selecionar coluna alguma.
+  FROM d2
+  WHERE d2.a = d1.a);")
+
+
+# SELF JOIN
+dbWriteTable(con, "func", func) #enviando a tabela para o Postgre
+
+func <- dbGetQuery(conn, "
+SELECT f.nome funcionario, s.nome supervisor
+FROM func f 
+JOIN func s ON s.id_funcionario = f.id_supervisor;")
+
+
